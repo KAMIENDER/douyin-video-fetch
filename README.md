@@ -1,60 +1,70 @@
-# Douyin Video Fetch
+# Douyin Video Fetch（抖音视频下载）
 
-OpenClaw Skill for downloading Douyin videos to local files (watermark-free when source is available).
+OpenClaw 技能：支持通过 URL 或 `video_id` 下载抖音视频，支持批量任务与 JSON 结构化输出。
 
-## What it does
+## 功能
 
-- Download by Douyin video URL
-- Download by `video_id`
-- Batch download from input file
-- Auto naming by `video_id`
-- JSON result output for pipeline integration
+- 按抖音视频 URL 下载
+- 按 `video_id` 下载
+- 支持批量输入（文件）
+- 默认按 `video_id` 自动命名
+- 支持 `--json` 输出，方便接入自动化流程
 
-## Requirements
+## 依赖
 
 - Python 3.10+
 - `playwright`
 - `aiohttp`
-- Chromium for Playwright
+- Playwright Chromium
 
-Install dependencies:
+安装依赖：
 
 ```bash
 pip install playwright aiohttp
 playwright install chromium
 ```
 
-## Usage
+## 用法
 
-From this skill directory:
+在当前技能目录下执行：
 
 ```bash
 python scripts/fetch_video.py "https://www.douyin.com/video/7599980362898427178"
 ```
 
-By `video_id`:
+按 `video_id` 下载：
 
 ```bash
 python scripts/fetch_video.py 7599980362898427178
 ```
 
-Batch mode (one URL or `video_id` per line):
+批量下载（每行一个 URL 或 `video_id`）：
 
 ```bash
 python scripts/fetch_video.py --file input.txt --output-dir ./downloads/douyin
 ```
 
-JSON output:
+输出 JSON 结果：
 
 ```bash
 python scripts/fetch_video.py --file input.txt --output-dir ./downloads/douyin --json
 ```
 
-## Output
+## 输出约定
 
-- Default output dir: `downloads`
-- File name: `<video_id>.mp4`
+- 默认输出目录：`downloads`
+- 文件名：`<video_id>.mp4`
 
-## Skill file
+## 说明
 
-See `SKILL.md` for OpenClaw skill metadata and quick instructions.
+- 该仓库是 OpenClaw Skill 源码仓库。
+- 技能元信息与调用说明见 `SKILL.md`。
+
+---
+
+# English (Short)
+
+OpenClaw skill for downloading Douyin videos by URL or `video_id`, with batch mode and JSON output.
+
+- Script: `scripts/fetch_video.py`
+- Skill metadata: `SKILL.md`
